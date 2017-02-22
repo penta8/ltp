@@ -13,11 +13,8 @@ end
 
 def equal_elements?(ar)
   if ar[0] == ar[1]
-    if ar[1..-1].length == 1
-      true
-    else
-      true == equal_elements?(ar[1..-1])
-    end
+    new_ar = ar[1..-1]
+    (new_ar.length == 1 && true) || true == equal_elements?(new_ar)
   else
     false
   end

@@ -1,10 +1,7 @@
 def shuffle(ar)
   return ar if ar.empty? or equal_elements?(ar)
   randomized = randomize(Array.new(ar))
-  while ar == randomized
-    randomized = randomize(Array.new(ar))
-  end
-  randomized
+  ar == randomized ? shuffle(ar) : randomized
 end
 
 def randomize(ar)

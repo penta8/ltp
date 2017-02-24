@@ -5,11 +5,8 @@ EQUIVALENCES = { M: 1000, CM: 900, D: 500, CD: 400,
 
 # Roman (String) -> Integer
 def roman_to_integer(roman)
-  total = 0
-  separate_values(roman).each do |symbol|
-    total += EQUIVALENCES[symbol]
-  end
-  total
+  separated = separate_values(roman)
+  separated.inject(0) { |sum, x| sum + EQUIVALENCES[x] }
 end
 
 def separate_values(roman)
